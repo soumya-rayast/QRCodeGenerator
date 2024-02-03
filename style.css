@@ -53,6 +53,7 @@ body {
     border-radius: 5px;
     max-height: 0;
     overflow: hidden;
+    transition: max-height 1s ;
 }
 #imgBox img{
     width: 100%;
@@ -63,4 +64,24 @@ body {
     max-height: 300px;
     margin: 10px auto;
     border: 1px solid black;
+}
+.error{
+    animation: shake 0.1s linear 10;
+}
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(0);
+    }
 }
