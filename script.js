@@ -1,15 +1,19 @@
-let imgBox = document.getElementById("imgBox");
-let QRtext = document.getElementById("QRtext");
-let QRimage = document.getElementById("QRimage");
+const imageBox = document.getElementById("imgBox");
+const QRText = document.getElementById("QRtext");
+const QRimage = document.getElementById("QRimage");
 
 function GenerateQR(){
-    if(QRtext.value.length > 0){
-        QRimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + QRtext.ariaValueMax;
-    imgBox.classList.add("show-img")
-    }else{
-        QRtext.classList.add("error")
+    const inputValue = QRText.value ;
+    if(inputValue.length > 0){
+        const QRcodeURL = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inputValue}`
+        QRimage.src = QRcodeURL;
+        imageBox.classList.add("show-img")
+    }
+    else{
+        QRText.classList.add("error");
         setTimeout(()=>{
-            QRtext.classList.add("error")
+            QRText.classList.remove("error");
         },1000)
     }
 }
+
